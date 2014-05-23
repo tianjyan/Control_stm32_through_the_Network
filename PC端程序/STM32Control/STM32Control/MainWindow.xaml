@@ -21,14 +21,14 @@
         <Grid Grid.Row="1">
             <StackPanel Orientation="Horizontal" MaxHeight="40">
                 <Border Width="80"/>
-                <TextBlock Text="硬件名称:"/>
+                <TextBlock Text="硬件名称:" Name="tb_ConstID"/>
                 <TextBlock x:Name="tb_ID" Text="STM32" Width="80"/>
-                <TextBlock Text="硬件密码:"/>
+                <TextBlock Text="硬件密码:" Name="tb_ConstPWD"/>
                 <TextBlock x:Name="tb_PWD" Text="123456" Width="80"/>
-                <TextBlock Text="硬件地址:"/>
+                <TextBlock Text="硬件地址:" Name="tb_ConstIP"/>
                 <TextBlock x:Name="tb_IP" Text="192.168.1.16" Width="120"/>
                 <Border Width="20"/>
-                <TextBlock Text="端口:"/>
+                <TextBlock Text="端口:" Name="tb_ConstPort"/>
                 <TextBlock x:Name="tb_Port" Text="1200" Width="40"/>
                 <Border Width="20"/>
             </StackPanel>

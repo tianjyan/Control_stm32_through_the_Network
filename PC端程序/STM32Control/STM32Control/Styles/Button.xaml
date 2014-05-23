@@ -218,5 +218,95 @@
             </Setter.Value>
         </Setter>
     </Style>
-	<!-- 应该在此定义资源字典条目。-->
+    <ControlTemplate x:Key="btnDetail" TargetType="{x:Type Button}">
+        <Grid x:Name="GDetail"  Height="24">
+            <Rectangle  Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Rectangle.Fill >
+                    <ImageBrush   ImageSource="Images/plus-blue.png"></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle >
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Text="更多信息"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" TargetName="GDetail">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#cecece" Offset="0"/>
+                            <GradientStop Color="#e5e5e5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="btnDetail2" TargetType="{x:Type Button}">
+        <Grid x:Name="GDetail"  Height="24">
+            <Rectangle  Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Rectangle.Fill >
+                    <ImageBrush   ImageSource="Images/plus-blue.png"></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle >
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Text="隐藏信息"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" TargetName="GDetail">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#cecece" Offset="0"/>
+                            <GradientStop Color="#e5e5e5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="btnClose" TargetType="{x:Type Button}">
+        <Grid Height="24" x:Name="GClose">
+            <Rectangle Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Images/buttonClose.gif" ></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Text="关闭"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" TargetName="GClose">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#cecece" Offset="0"/>
+                            <GradientStop Color="#e5e5e5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="btnEmail" TargetType="{x:Type Button}">
+        <Grid Height="24" x:Name="GEmail">
+            <Rectangle Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Images/Email.png" ></ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Text="发送错误报告"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" TargetName="GEmail">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#cecece" Offset="0"/>
+                            <GradientStop Color="#e5e5e5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- 应该在此定义资源字典条目。-->
 </ResourceDictionary>

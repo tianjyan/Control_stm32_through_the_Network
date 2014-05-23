@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -23,6 +24,8 @@ namespace STM32Control
         {
             RemoveTrayIcon();
             AddTrayIcon();
+            SetLanguageDictionary();
+            this.DispatcherUnhandledException +=App_DispatcherUnhandledException;
         }
 
         //protected override void OnStartup(StartupEventArgs e)
@@ -73,6 +76,7 @@ namespace STM32Control
             trayIcon = new NotifyIcon
             {
                 Icon = new System.Drawing.Icon("logo.ico"),
+                //Icon = new System.Drawing.Icon("STM32Control;component/Images/logo.ico"),
                 Text = "STM32Control"
             };
             trayIcon.Click += trayIcon_Click;
@@ -131,5 +135,27 @@ namespace STM32Control
         //    else
         //        return null;
         //}
+
+        private void SetLanguageDictionary()
+        {
+            ResourceDictionary dict = new ResourceDictionary();
+            switch (Thread.CurrentThread.CurrentCulture.ToString())
+            {
+                case "zh-CN":
+                    dict.Source = new Uri("..\\Resource\\Languages\\Chinese_Simplified.xaml", UriKind.Relative);
+                    break;
+                default:
+                    dict.Source = new Uri("..\\Resource\\Languages\\English.xaml", UriKind.Relative);
+                    break;
+            }
+            this.Resources.MergedDictionaries.Add(dict);
+        }
+
+        private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            ExceptionReportView exception = new ExceptionReportView(e.Exception);
+            exception.ShowDialog();
+            e.Handled = true;
+        }
     }
 }

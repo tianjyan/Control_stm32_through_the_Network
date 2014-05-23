@@ -25,7 +25,10 @@ namespace STM32Control
         public MainWindow()
         {
             InitializeComponent();
+            LoadResource();
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
+            ExceptionReportView exception = new ExceptionReportView(new Exception());
+            exception.ShowDialog();
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -35,6 +38,15 @@ namespace STM32Control
             proxy.onData = new OnData(onData);
             proxy.onDisconnect = new OnDisconnect(onDisconnect);
         }
+
+        private void LoadResource()
+        {
+            tb_ConstID.Text = App.Current.TryFindResource("UI_DeviceID").ToString();
+            tb_ConstIP.Text = App.Current.TryFindResource("UI_DeviceID").ToString();
+            tb_ConstPort.Text = App.Current.TryFindResource("UI_DevicePort").ToString();
+            tb_ConstPWD.Text = App.Current.TryFindResource("UI_DevicePassword").ToString();
+        }
+
         #region 代理委托事件:OnConnect,OnData,OnDisconnect
         void onConnect(bool result)
         {
