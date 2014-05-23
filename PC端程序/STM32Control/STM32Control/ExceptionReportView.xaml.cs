@@ -27,7 +27,7 @@ namespace STM32Control
             ShowFullDetail();
         }
 
-        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        private  void  btnDetail_Click(object sender, RoutedEventArgs e)
         {
             ShowFullDetail();
         }

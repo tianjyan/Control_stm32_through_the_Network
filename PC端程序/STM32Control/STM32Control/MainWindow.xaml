@@ -42,7 +42,7 @@
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="1" Name="LstInfo" Background="Transparent"/>
             <Grid Grid.Column="0">
-                <TabControl TabStripPlacement="Left" Background="Transparent">
+                <TabControl TabStripPlacement="Left" Background="Transparent" Name="tab_Functions">
                     <TabControl.Resources>
                         <Style TargetType="{x:Type TabItem}">
                             <Setter Property="Padding" Value="5" />

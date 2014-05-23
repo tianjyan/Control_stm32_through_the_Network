@@ -45,6 +45,17 @@ namespace STM32Control
             tb_ConstIP.Text = App.Current.TryFindResource("UI_DeviceID").ToString();
             tb_ConstPort.Text = App.Current.TryFindResource("UI_DevicePort").ToString();
             tb_ConstPWD.Text = App.Current.TryFindResource("UI_DevicePassword").ToString();
+            btn_Connect.Content = App.Current.TryFindResource("UI_Connect").ToString();
+            btn_Alert.Content = App.Current.TryFindResource("UI_Modify").ToString();
+
+            ((TabItem)(tab_Functions.Items[0])).Header = App.Current.TryFindResource("UI_Digit").ToString();
+            ((TabItem)(tab_Functions.Items[1])).Header = App.Current.TryFindResource("UI_Analog").ToString();
+            ((TabItem)(tab_Functions.Items[2])).Header = App.Current.TryFindResource("UI_Impulse").ToString();
+            ((TabItem)(tab_Functions.Items[3])).Header = App.Current.TryFindResource("UI_Humiture").ToString();
+            ((TabItem)(tab_Functions.Items[4])).Header = App.Current.TryFindResource("UI_IR").ToString();
+
+            btn_GetDigit.Content = App.Current.TryFindResource("UI_GetDigit").ToString();
+            btn_GetAnalog.Content = App.Current.TryFindResource("UI_GetAnalog").ToString();
         }
 
         #region 代理委托事件:OnConnect,OnData,OnDisconnect
