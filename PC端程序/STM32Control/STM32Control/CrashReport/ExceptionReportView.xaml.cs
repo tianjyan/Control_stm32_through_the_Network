@@ -1,4 +1,6 @@
-﻿using System;
+﻿using STM32Control.CrashReport;
+using STM32Control.CrashReport.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +21,14 @@ namespace STM32Control
     public partial class ExceptionReportView : Window
     {
         ExceptionReportInfo reportInfo = new ExceptionReportInfo();
-
+        ExceptionReportPresenter presenter;
         public ExceptionReportView(params Exception[] e)
         {
             InitializeComponent();
             reportInfo.SetExceptions(e);   
-            ShowFullDetail();
+            //ShowFullDetail();
+            ShowLastReportInfot(reportInfo);
+            presenter = new ExceptionReportPresenter(reportInfo);
         }
 
         private  void  btnDetail_Click(object sender, RoutedEventArgs e)
@@ -34,7 +38,17 @@ namespace STM32Control
 
         private void btnEmail_Click(object sender, RoutedEventArgs e)
         {
-
+            reportInfo.Description = tb_Describe.Text;
+            if (CbkPersonalInfo.IsChecked == true)
+            {
+                reportInfo.IsSendPersonalInfo = true;
+            }
+            else
+            {
+                reportInfo.IsSendPersonalInfo = false;
+            }
+            presenter.SendReportByEmail();
+            this.Close();
         }
 
         private void ShowFullDetail()
@@ -64,6 +78,7 @@ namespace STM32Control
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            presenter.ScreenshotFileDelte();
             this.Close();
         }
     }

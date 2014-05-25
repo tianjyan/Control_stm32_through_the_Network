@@ -5,11 +5,11 @@
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="60*" />
+            <ColumnDefinition Width="56*" />
             <ColumnDefinition Width="148*" />
-            <ColumnDefinition Width="80*" />
+            <ColumnDefinition Width="75*" />
             <ColumnDefinition Width="14*" />
-            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="38*" />
             <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>

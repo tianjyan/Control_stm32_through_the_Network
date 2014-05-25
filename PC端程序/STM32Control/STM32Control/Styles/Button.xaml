@@ -244,7 +244,7 @@
         <Grid x:Name="GDetail"  Height="24">
             <Rectangle  Width="24" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                 <Rectangle.Fill >
-                    <ImageBrush   ImageSource="Images/plus-blue.png"></ImageBrush>
+                    <ImageBrush   ImageSource="Images/minus.png"></ImageBrush>
                 </Rectangle.Fill>
             </Rectangle >
             <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Text="隐藏信息"/>

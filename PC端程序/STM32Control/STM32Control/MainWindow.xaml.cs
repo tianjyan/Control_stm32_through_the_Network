@@ -27,8 +27,6 @@ namespace STM32Control
             InitializeComponent();
             LoadResource();
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
-            ExceptionReportView exception = new ExceptionReportView(new Exception());
-            exception.ShowDialog();
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
