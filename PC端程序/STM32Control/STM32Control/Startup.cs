@@ -4,18 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Windows;
 
 namespace STM32Control
 {
-    public class Startup
+    public class StartUp
     {
+        static Mutex m;
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main()
         {
+            bool isrun;
+            m = new Mutex(true, "STM32Control", out isrun);
+            if (!isrun)
+            {
+                
+            }
             SingleApp sa = new SingleApp();
-            //string[] s = { "STM32Control" };
-            sa.Run(args);
+            string[] s = { "STM32Control" };
+            sa.Run(s);
         }
     }
 
@@ -23,29 +29,23 @@ namespace STM32Control
     {
         public SingleApp()
         {
-            this.IsSingleInstance = true;
+            base.IsSingleInstance = true;
         }
 
-        private STM32Control.App app;
-        protected override bool OnStartup(Microsoft.VisualBasic.ApplicationServices.StartupEventArgs eventArgs)
+        private App app;
+        protected override bool OnStartup(StartupEventArgs eventArgs)
         {
             app = new App();
-            //app.InitializeComponent();
             app.Run();
             return false;
         }
 
         protected override void OnStartupNextInstance(StartupNextInstanceEventArgs eventArgs)
         {
-            //app.TryActive();
-            foreach (Window win in app.Windows)
-            {
-                if (win.Visibility != Visibility.Visible)
-                {
-                    win.Activate();
-                }
-            }
+            app.TryActive();
         }
 
     }
+
+
 }
