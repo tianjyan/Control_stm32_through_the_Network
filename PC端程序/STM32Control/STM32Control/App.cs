@@ -50,9 +50,10 @@ namespace STM32Control
             MainWindow mw = GetMainWindow();
             if (mw != null)
             {
-                //mw.WindowState = WindowState.Minimized;
-                //mw.WindowState = WindowState.Normal;
-                mw.Activate();
+                mw.WindowState = WindowState.Minimized;
+                mw.WindowState = WindowState.Normal;
+                //mw.Activate();
+
                 trayIcon_Click(null, null);
                 
             }
@@ -84,6 +85,11 @@ namespace STM32Control
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             ExceptionReportView exception = new ExceptionReportView(e.Exception);
+            if (MainWindow.Visibility == Visibility.Visible)
+            {
+                exception.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                exception.Owner = MainWindow;
+            }
             exception.ShowDialog();
             e.Handled = true;
         }

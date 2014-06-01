@@ -22,9 +22,20 @@ namespace STM32Control
         Client client;
         bool isConnected = false;
         bool hasIRCode = false;
+        System.Windows.Media.Animation.Storyboard sb;
         public MainWindow()
         {
             InitializeComponent();
+            sb = (System.Windows.Media.Animation.Storyboard)this.Resources["spread"];
+            sb.Completed += (s, e) =>
+            {
+                sb = (System.Windows.Media.Animation.Storyboard)this.Resources["shrink"];
+                sb.Completed += (sender, Event) => Application.Current.Shutdown();
+            };
+            if (sb != null)
+            {
+                sb.Begin();
+            }
             LoadResource();
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
         }
@@ -302,7 +313,11 @@ namespace STM32Control
         {
             //this.Close();
             //this.Hide();
-            Application.Current.Shutdown();
+            if (sb != null)
+            {
+                sb.Begin();
+            }
+            //Application.Current.Shutdown();
         }
 
         private void btnMinsize_Click(object sender, RoutedEventArgs e)
