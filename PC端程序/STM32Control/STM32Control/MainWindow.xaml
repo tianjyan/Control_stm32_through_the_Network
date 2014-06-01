@@ -1,7 +1,7 @@
 ﻿<Window x:Class="STM32Control.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Stm32 V 2.0.1" Height="620" Width="870" WindowStartupLocation="CenterScreen" FontSize="15"
+        Title="Stm32 V2.0.1" Height="620" Width="870" WindowStartupLocation="CenterScreen" FontSize="15"
         ShowInTaskbar="True"  Name="layoutroot"
         Style="{DynamicResource NoResize_window}" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Window.Background>
@@ -435,7 +435,7 @@
                 <StatusBar.Background>
                     <ImageBrush ImageSource="Images/StatusBarBg.bmp"/>
                 </StatusBar.Background>
-                <StatusBarItem Content="主程序版本:1.0.0     作者:杨小杰      邮箱:youngytj@sina.com    仅供演示" Margin="7,0,0,0"/>
+                <StatusBarItem Content="主程序版本:2.0.1    作者:杨小杰      邮箱:youngytj@sina.com    仅供演示" Margin="7,0,0,0"/>
             </StatusBar>
         </Grid>
     </Grid>

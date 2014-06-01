@@ -320,6 +320,14 @@ namespace STM32Control
             //Application.Current.Shutdown();
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+
+            base.OnClosing(e);
+            e.Cancel = true;
+            btnClose_Click(null, null);
+        }
+
         private void btnMinsize_Click(object sender, RoutedEventArgs e)
         {
             //this.WindowState = WindowState.Minimized;
